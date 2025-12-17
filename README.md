@@ -22,9 +22,12 @@ This system answers questions like:
 The database is normalized into three main tables:
 
 ### Patients
-
+- Demographics and patient identifiers
 
 ### Procedures
-
+- Imaging procedure metadata
+- Typical radiation dose per procedure
 
 ### Radiation Events
+- Individual imaging events
+- Links patients to procedures and dates
