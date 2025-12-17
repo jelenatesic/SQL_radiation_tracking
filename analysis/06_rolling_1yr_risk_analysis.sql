@@ -1,4 +1,4 @@
---> Task 4: Time Based Risk Analysis - Patients with increasing dose over last year
+--> Task 4.1: Time Based Risk Analysis - Patients with increasing dose over last year
 
 WITH Cumulative_Dose_mSv AS (
 SELECT 
@@ -24,7 +24,7 @@ WHERE cumulative_dose_mSv > 20
 ORDER BY patient_id, event_date;
 
 
--- Task 4.1: Cumulate only ones within a year of the watched event
+-- Task 4.2: Cumulate only ones within a year of the watched event
 SELECT 
     p.patient_id,
     p.name,
@@ -34,7 +34,7 @@ SELECT
         SELECT SUM(pr2.typical_dose_mSv)
         FROM radiation_events re2
         JOIN procedures pr2
-        ON re2.procedure_id = pr2.procedure_id
+            ON re2.procedure_id = pr2.procedure_id
         WHERE re2.patient_id = re.patient_id
         AND re2.event_date BETWEEN date(re.event_date, -'1 year') AND re.event_date
     ) AS rolling_1yr_dose_mSv

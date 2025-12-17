@@ -1,10 +1,3 @@
-
--- SELECT * FROM radiation_events;
--- SELECT * FROM radiation_events
--- WHERE event_date >= date('now', '-1 year');
-
--- Task: Track patients dose of radiation over the last year
-
 ----> Creating view to aggregate dose per patient over last year
 DROP VIEW IF EXISTS Dose_per_Patient_Last_Year;
 CREATE VIEW Dose_per_Patient_Last_Year AS 
@@ -23,22 +16,6 @@ CREATE VIEW Dose_per_Patient_Last_Year AS
         ON re.patient_id = p.patient_id
     WHERE re.event_date >= date(date('now'), '-1 year')
     GROUP BY re.patient_id, p.name;
-
---> Task 1: Patients with total dose > 20mSv in the last year
-SELECT 
-    p.patient_id,
-    p.name, 
-    dpp.total_dose_mSv AS dose_higher_than_20mSv,
-    dpp.num_events AS number_of_radiation_events_in_year,
-    dpp.first_event_date,
-    dpp.last_event_date
-FROM patients p
-JOIN Dose_per_Patient_Last_Year dpp
-    ON p.patient_id = dpp.patient_id
-WHERE dpp.total_dose_mSv > 20 
-GROUP BY p.patient_id, p.name;
-
-  
 
 --> Task 3.1: Dose by Modality overall 
 SELECT
@@ -62,6 +39,3 @@ JOIN procedures pr
 ON dpp.procedure_id = pr.procedure_id
 GROUP BY dpp.patient_id, pr.modality;
 
-
-
-    
