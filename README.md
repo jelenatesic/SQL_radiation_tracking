@@ -1,9 +1,30 @@
-# Radiation Dose Tracking System
+# Radiation Dose Tracking System (SQL)
 
-This repository contains SQL assignment. The aim is to design a simplified radiation dose tracking system for medical imaging. The goal was to track patient exposures across time and ensure annual safety thresholds were not exceeded. 
+This project implements a simplified radiation dose tracking system for medical imaging using SQL and SQLite. 
 
-In this assignment we are tracking: patients, imaging procedures, radiation dose per procedure and dates of exposure. 
+The goal is to:
+- Track radiation exposure per patient
+- Agregate dose over clinically meaningful time windows (1 year) 
+- Detect when regulatory safety thresholds are exceeded.
 
-## Task 1 — Patient Dose Summary
-Selecting patients with total radiation dose > 20 mSv in the last year. Radiation dose for the 1 year period from the current date and number of radiation events per patient, with first and last screening date displayed. 
+The project is inspired by real-world radiology and nuclear medicine dose monitoring systems. 
 
+## Clinical Motivation
+Medical imaging procedures such as X-ray, CT and PET expose patients to ionizing radiation, which can be dangerous if the defined threshold of cumulative radiation exposure over one year is exceeded (20 mSv). 
+
+This system answers questions like:
+- How much radiation has a patient recieved in the last year?
+- How many imaging events contributed to that dose?
+- On which imaging event did a patient cross a risk threshold?
+
+---
+## Database Shema
+The database is normalized into three main tables:
+
+### Patients
+
+
+### Procedures
+
+
+### Radiation Events
