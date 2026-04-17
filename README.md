@@ -32,4 +32,5 @@ The database is normalized into three main tables:
 - Individual imaging events
 - Links patients to procedures and dates
 
-* This project was done for the purpose of learning SQL
+
+This project was done for the purpose of learning SQL
