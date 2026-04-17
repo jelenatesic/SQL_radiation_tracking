@@ -33,3 +33,4 @@ The database is normalized into three main tables:
 - Links patients to procedures and dates
 
 
+---------------
