@@ -33,4 +33,3 @@ The database is normalized into three main tables:
 - Links patients to procedures and dates
 
 
-This project was done for the purpose of learning SQL.
